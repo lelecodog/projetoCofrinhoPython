@@ -19,8 +19,6 @@ implementações adicionais.
 
 # Ferramenta utilizada:
 
-**Python**: Linguagem de programação utilizada
-
 ![image](https://github.com/user-attachments/assets/0b535ae5-c398-4398-8353-d66759a7f0de)
 
 
