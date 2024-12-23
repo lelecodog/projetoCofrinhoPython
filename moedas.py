@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import json
+
 class Moeda(ABC):
     def __init__(self, valor: float):
         self.valor = valor
@@ -17,6 +18,7 @@ class Moeda(ABC):
     # Converter a instancia de Moeda para um dicionario para ser lido em JSON
     def to_dict(self):
         return {"tipo": self.__class__.__name__, "valor": self.valor}
+
 class Dolar(Moeda):
     def __init__(self, valor: float):
         super().__init__(valor)
@@ -28,6 +30,7 @@ class Dolar(Moeda):
 
     def __str__(self):
         return f"Dolar com valor de {self.valor} USD"
+
 class Euro(Moeda):
     def __init__(self, valor: float):
         super().__init__(valor)
@@ -39,31 +42,36 @@ class Euro(Moeda):
 
     def __str__(self):
         return f"Euro com valor de {self.valor} EUR"
+
 class Cofrinho:
     def __init__(self):
         self.moedas = []
+
     def adiciona_moeda(self, moeda: Moeda):
         self.moedas.append(moeda)
         print("Moeda adicionada: ", moeda.info())
+
     def listar_moedas(self):
         for moeda in self.moedas:
             print(moeda.info())
+
     def remover_moedas(self, moeda: Moeda):
         if moeda in self.moedas:
             self.moedas.remove(moeda)
             print("Moeda removida: ", moeda.info())
         else:
             print("Moeda não encontrada")
+
     def total_convertido(self):
         total = sum(moeda.converter() for moeda in self.moedas)
         print(f"Total convertido do cofrinho é de: {total:.2f} Reais")
 
-    def salvar_moedas(self, arquivo):
+    def salvar_moedas(self, arquivo): #Salva moedas em arquivo JSON
         with open(arquivo, "w") as f:
             for moeda in self.moedas:
                 f.write(json.dumps(moeda.to_dict()) + "\n")
 
-    def carregar_moedas(self, arquivo):
+    def carregar_moedas(self, arquivo): #Carregar moedas salvas
         try:
             with open(arquivo, "r") as f:
                 for linha in f:

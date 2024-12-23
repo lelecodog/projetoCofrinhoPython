@@ -1,7 +1,6 @@
 from moedas import Moeda, Dolar, Euro, Cofrinho
 from valueError import obter_opcao, obter_valor
 
-
 cofrinho = Cofrinho()
 cofrinho.carregar_moedas("cofrinho.json")
 while True:
