@@ -18,6 +18,7 @@ implementações adicionais.
 4. Converter: obtenha o valor somado de todas as moedas guardadas em reais
 
 # Ferramenta utilizada:
+![image](https://github.com/user-attachments/assets/0b535ae5-c398-4398-8353-d66759a7f0de)
 
 **Python**: Linguagem de programação utilizada
 
